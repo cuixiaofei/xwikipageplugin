@@ -1,0 +1,6 @@
+# 隐私/本地文件
+.env
+*config*local*
+*secret*
+*.key
+*.pem
