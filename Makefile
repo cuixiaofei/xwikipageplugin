@@ -224,8 +224,8 @@ init:
 		fi; \
 		if [ -z "$$(git log --oneline -1 2>/dev/null)" ]; then \
 			git add . && \
-			git commit --quiet -m "初始提交：项目骨架" && \
-			echo "🎉 首次提交完成"; \
+			git commit --quiet -m "first commit" && \
+			echo "🎉 首次提交已准备"; \
 		fi; \
 	fi
 
