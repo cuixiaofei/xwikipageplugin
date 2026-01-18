@@ -22,15 +22,19 @@
 
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>cn.openresearch</groupId>
   <artifactId>xwikipageplugin</artifactId>
   <version>0.1-SNAPSHOT</version>
   <name>XWiki Macro - Hello World Component</name>
   <description>XWiki Macro - Hello World Component</description>
+
   <properties>
     <commons.version>15.10</commons.version>
   </properties>
+
   <build>
     <plugins>
       <plugin>
@@ -49,7 +53,10 @@
       </plugin>
     </plugins>
   </build>
+
   <dependencies>
+
+    <!-- Official XWiki Commons Component API -->
     <dependency>
       <groupId>org.xwiki.commons</groupId>
       <artifactId>xwiki-commons-component-api</artifactId>
@@ -68,5 +75,35 @@
       <version>${commons.version}</version>
       <scope>test</scope>
     </dependency>
+    <!-- Configuration dependency -->
+    <dependency>
+      <groupId>org.xwiki.commons</groupId>
+      <artifactId>xwiki-commons-configuration-api</artifactId>
+      <version>${commons.version}</version>
+    </dependency>
+
+    <!-- JSON 解析 -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+
+    <!-- 日志依赖，与 XWiki 日志体系对齐 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.36</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Solana 依赖 -->
+    <dependency>
+      <groupId>com.mmorrell</groupId>
+      <artifactId>solanaj</artifactId>
+      <version>1.24.0</version>
+    </dependency>
+
   </dependencies>
+
 </project>
