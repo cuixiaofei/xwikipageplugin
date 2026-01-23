@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: helloworld.HelloWorldTest
+Test set: pageplugin.Step2Test
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.006 s -- in helloworld.HelloWorldTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.197 s -- in pageplugin.Step2Test

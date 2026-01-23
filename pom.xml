@@ -28,7 +28,7 @@
 
     <groupId>cn.openresearch</groupId>
     <artifactId>xwikipageplugin</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>XWiki Macro - Hello World Component</name>
@@ -36,16 +36,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <java.version>17</java.version>
 
         <!-- 版本定义 -->
         <xwiki.version>15.10</xwiki.version>
         <gson.version>2.10.1</gson.version>
         <slf4j.version>1.7.36</slf4j.version>
         <junit.version>5.10.0</junit.version>
-        <solanaj.version>1.24.0</solanaj.version>
+        <solanaj.version>1.27.3</solanaj.version>
     </properties>
 
     <dependencies>
@@ -84,6 +82,12 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>${gson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.novacrypto</groupId>
+            <artifactId>Base58</artifactId>
+            <version>2022.01.17</version>
         </dependency>
 
         <!-- ============== Solanaj SDK ============== -->
@@ -126,8 +130,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>${java.version}</release>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="helloworld.HelloWorldTest" time="5.006" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="pageplugin.Step1Test" time="0.685" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -54,5 +54,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="sayHello" classname="helloworld.HelloWorldTest" time="4.671"/>
+  <testcase name="testPdfHashGeneration" classname="pageplugin.Step1Test" time="0.661">
+    <system-out><![CDATA[📊 Actual result: {"hash":"0x4c9c7d83ea720b531fd9800280495ada6029bb6cb5ba9b7b7e0b090e612e02ba","userSeed":"test-user-001","size":33}
+✅ Step1Test PASSED!
+]]></system-out>
+  </testcase>
+  <testcase name="testEmptyPdf" classname="pageplugin.Step1Test" time="0.011">
+    <system-out><![CDATA[✅ Empty PDF Test PASSED!
+]]></system-out>
+  </testcase>
 </testsuite>

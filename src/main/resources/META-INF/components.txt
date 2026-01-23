@@ -1,2 +1,5 @@
 helloworld.internal.DefaultHelloWorld
 helloworld.script.HelloWorldScriptService
+
+pageplugin.internal.DefaultPdfHashService
+pageplugin.internal.DefaultSolanaService

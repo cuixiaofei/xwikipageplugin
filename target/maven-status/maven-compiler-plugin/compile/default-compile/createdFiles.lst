@@ -1,3 +1,7 @@
+pageplugin/internal/DefaultPdfHashService.class
+pageplugin/PdfHashService.class
 helloworld/script/HelloWorldScriptService.class
 helloworld/internal/DefaultHelloWorld.class
+pageplugin/internal/DefaultSolanaService.class
 helloworld/HelloWorld.class
+pageplugin/SolanaService.class
