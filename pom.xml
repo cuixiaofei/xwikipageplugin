@@ -20,90 +20,167 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.openresearch</groupId>
+    <artifactId>xwikipageplugin</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-  <groupId>cn.openresearch</groupId>
-  <artifactId>xwikipageplugin</artifactId>
-  <version>0.1-SNAPSHOT</version>
-  <name>XWiki Macro - Hello World Component</name>
-  <description>XWiki Macro - Hello World Component</description>
+    <name>XWiki Macro - Hello World Component</name>
+    <description>XWiki Macro - Hello World Component</description>
 
-  <properties>
-    <commons.version>15.10</commons.version>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version>
-        <configuration>
-          <source>11</source>
-          <target>11</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.2.2</version>
-      </plugin>
-    </plugins>
-  </build>
+        <!-- 版本定义 -->
+        <xwiki.version>15.10</xwiki.version>
+        <gson.version>2.10.1</gson.version>
+        <slf4j.version>1.7.36</slf4j.version>
+        <junit.version>5.10.0</junit.version>
+        <solanaj.version>1.24.0</solanaj.version>
+    </properties>
 
-  <dependencies>
+    <dependencies>
+        <!-- ============== XWiki核心依赖 ============== -->
+        <dependency>
+            <groupId>org.xwiki.commons</groupId>
+            <artifactId>xwiki-commons-component-api</artifactId>
+            <version>${xwiki.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.xwiki.commons</groupId>
+            <artifactId>xwiki-commons-script</artifactId>
+            <version>${xwiki.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.xwiki.commons</groupId>
+            <artifactId>xwiki-commons-configuration-api</artifactId>
+            <version>${xwiki.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- SLF4J API -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
-    <!-- Official XWiki Commons Component API -->
-    <dependency>
-      <groupId>org.xwiki.commons</groupId>
-      <artifactId>xwiki-commons-component-api</artifactId>
-      <version>${commons.version}</version>
-    </dependency>
-    <!-- Only needed if some of the component's APIs must be made visible to scripting in wiki pages -->
-    <dependency>
-      <groupId>org.xwiki.commons</groupId>
-      <artifactId>xwiki-commons-script</artifactId>
-      <version>${commons.version}</version>
-    </dependency>
-    <!-- Testing dependencies -->
-    <dependency>
-      <groupId>org.xwiki.commons</groupId>
-      <artifactId>xwiki-commons-tool-test-component</artifactId>
-      <version>${commons.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <!-- Configuration dependency -->
-    <dependency>
-      <groupId>org.xwiki.commons</groupId>
-      <artifactId>xwiki-commons-configuration-api</artifactId>
-      <version>${commons.version}</version>
-    </dependency>
+        <!-- JSON处理 - Gson（solanaj也使用Gson） -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
 
-    <!-- JSON 解析 -->
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.10.1</version>
-    </dependency>
+        <!-- ============== Solanaj SDK ============== -->
+        <dependency>
+            <groupId>com.mmorrell</groupId>
+            <artifactId>solanaj</artifactId>
+            <version>${solanaj.version}</version>
+        </dependency>
 
-    <!-- 日志依赖，与 XWiki 日志体系对齐 -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.7.36</version>
-      <scope>provided</scope>
-    </dependency>
+        <!-- ============== 测试依赖 ============== -->
+        <!-- XWiki测试框架 -->
+        <dependency>
+            <groupId>org.xwiki.commons</groupId>
+            <artifactId>xwiki-commons-tool-test-component</artifactId>
+            <version>${xwiki.version}</version>
+            <scope>test</scope>
+        </dependency>
 
-    <!-- Solana 依赖 -->
-    <dependency>
-      <groupId>com.mmorrell</groupId>
-      <artifactId>solanaj</artifactId>
-      <version>1.24.0</version>
-    </dependency>
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- 测试日志实现 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-  </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <!-- 通道配置 -->
+                    <systemPropertyVariables>
+                        <solana.rpc.url>${solana.rpc.url}</solana.rpc.url>
+                        <solana.private.key>${solana.private.key}</solana.private.key>
+                    </systemPropertyVariables>
+                    <environmentVariables>
+                        <SOLANA_PRIVATE_KEY>${env.SOLANA_PRIVATE_KEY}</SOLANA_PRIVATE_KEY>
+                    </environmentVariables>
+                </configuration>
+            </plugin>
+
+            <!-- 源码打包插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>devnet</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <solana.rpc.url>https://api.devnet.solana.com</solana.rpc.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>testnet</id>
+            <properties>
+                <solana.rpc.url>https://api.testnet.solana.com</solana.rpc.url>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
